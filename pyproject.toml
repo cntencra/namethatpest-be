@@ -1,0 +1,24 @@
+[project]
+name = "namethatpest-be"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "asgi-lifespan>=2.1.0",
+    "dotenv>=0.9.9",
+    "fastapi>=0.115.14",
+    "psycopg[binary,pool]>=3.2.9",
+    "pytest>=8.4.1",
+    "pytest-env>=1.1.5",
+    "python-dotenv>=1.1.1",
+    "uvicorn>=0.35.0",
+]
+
+
+[dependency-groups]
+dev = [
+    "asgi-lifespan>=2.1.0",
+    "pytest>=8.4.1",
+    "pytest-env>=1.1.5",
+]

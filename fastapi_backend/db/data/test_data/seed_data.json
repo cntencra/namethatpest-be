@@ -1,0 +1,32 @@
+{
+  "insects": [
+    { "insect_id": 1, "generic_name": "Goodest Boy", "specific_name": "Golden Retriever" },
+    { "insect_id": 2, "generic_name": "Magic Boy", "specific_name": "Unicorn" },
+    { "insect_id": 3, "generic_name": "Danger Noodle", "specific_name": "Snake"},
+    { "insect_id": 4, "generic_name": "Formal Chicken", "specific_name": "Penguin"},
+    { "insect_id": 5, "generic_name": "Washing Bear", "specific_name": "Racoon"}
+  ],
+
+  "img_urls": [
+    { "insect_id": 1, "image_url": "image1.com" },
+    { "insect_id": 2, "image_url": "image2.com" },
+    { "insect_id": 3,  "image_url": "image3.com" },
+    { "insect_id": 4, "image_url":"image4.com" },
+    { "insect_id": 5, "image_url": "image5.com "},
+
+    { "animal_id": 1, "image_url": "image1.com" },
+    { "animal_id": 2, "image_url": "image2.com" },
+    { "animal_id": 3,  "image_url": "image3.com" },
+    { "animal_id": 4, "image_url":"image4.com" },
+    { "animal_id": 5, "image_url": "image5.com "}
+  ],
+
+  "dev_animals": [
+    { "animal_id": 1, "generic_name": "Goodest Boy", "specific_name": "Golden Retriever" },
+    { "animal_id": 2, "generic_name": "Magic Boy", "specific_name": "Unicorn" },
+    { "animal_id": 3, "generic_name": "Danger Noodle", "specific_name": "Snake"},
+    { "animal_id": 4, "generic_name": "Formal Chicken", "specific_name": "Penguin"},
+    { "animal_id": 5, "generic_name": "Washing Bear", "specific_name": "Racoon"}
+  ]
+  
+}
