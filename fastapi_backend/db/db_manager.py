@@ -12,11 +12,13 @@ class _DBManager:
             return 
         
         self._initialized = True
-
         self._env_selected = False
+        self._async_pool: AsyncConnectionPool | None = None
+        self._database_url: str | None = None
+        self._env_mode: str = "dev"
     
     async def init_env(self):
-        if hasattr(self, "_env_selected") and self._env_selected:
+        if self._env_selected:
             return 
         
         self._env_selected = True
@@ -26,14 +28,27 @@ class _DBManager:
 
         load_dotenv(env_file)
 
-        self._pg_db = os.getenv("PGDATABASE")
-        self._pg_user = os.getenv("PGUSER")
-        self._pg_password = os.getenv("PGPASSWORD")
-        self._pg_host = os.getenv("PGHOST", "localhost")
-        self._pg_port = int(os.getenv("PGPORT", 5432))
-        print(f"\n🔗 Using database: {self._pg_db}")
+        self._database_url = os.getenv("DATABASE_URL")
+        if not self._database_url:
+            pg_db = os.getenv("PGDATABASE")
+            pg_user = os.getenv("PGUSER")
+            pg_password = os.getenv("PGPASSWORD")
+            pg_host = os.getenv("PGHOST", "localhost")
+            pg_port = int(os.getenv("PGPORT", 5432))
 
-        self._async_pool: AsyncConnectionPool | None = None
+            if not all([pg_db, pg_user, pg_password]):
+                raise RuntimeError(
+                    "Missing database configuration! "
+                    "Set DATABASE_URL or PGDATABASE/PGUSER/PGPASSWORD."
+                )
+
+            self._database_url = (
+                f"postgresql+psycopg://{pg_user}:{pg_password}"
+                f"@{pg_host}:{pg_port}/{pg_db}"
+            )
+
+        print(f"\n🔗 Using database for {self._env_mode.capitalize()}")
+
 
     async def open_pool(self):
         if not self._env_selected:
