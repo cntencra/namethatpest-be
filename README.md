@@ -9,10 +9,8 @@ cd ~/path_to_dir/
 
 git clone https://github.com/cntencra/namthatpest-be
 ``` 
-## Install dependencies, 
-```bash
-uv install
-```
+## Install uv, 
+[uv install](https://docs.astral.sh/uv/getting-started/installation/)
 
 ## Set up the .env.* files
 ```
