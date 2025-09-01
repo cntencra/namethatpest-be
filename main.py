@@ -23,6 +23,8 @@ app = FastAPI(lifespan=lifespan)
 origins = [
     "http://localhost:3000",
     "http://192.168.0.14:3000",
+    "https://namethatpest.co.uk",
+    "https://www.namethatpest.co.uk",
 ]
 
 app.add_middleware(
