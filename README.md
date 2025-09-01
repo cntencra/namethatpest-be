@@ -46,9 +46,13 @@ uv run pytest -s tests
 
 
 
-## run server
+## run dev server
 ```bash
 
 uv run fastapi dev main.py
 ```
 
+## run prod server
+```
+ENV= production uv run fastapi run main.py
+```
