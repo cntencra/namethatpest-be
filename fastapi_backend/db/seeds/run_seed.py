@@ -6,16 +6,14 @@ import os
 
 async def run_seed():
     dev_data_path = get_project_root() / "fastapi_backend" / "db" / "data" / "dev_data" / "seed_data.json"
-    os.environ["ENV"] = "dev"
+    os.environ["ENV"] = "production"
     await db_manager.init_env()
     await db_manager.open_pool()
-    print("🔗 Database connection pool opened.")
     seed_data = load_seed_data(dev_data_path)
+    
     await seed(db_manager, seed_data)
-    print("✅ Dev Database seeded.")
-
+    print(f"✅ {os.getenv("ENV")} Database seeded.")
     await db_manager.close_pool()
-    print("🧹 Pool closed.")
 
 def main():
     import asyncio
