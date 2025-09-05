@@ -25,6 +25,7 @@ origins = [
     "http://192.168.0.14:3000",
     "https://namethatpest.co.uk",
     "https://www.namethatpest.co.uk",
+    "https://namethatpest.netlify.app"
 ]
 
 app.add_middleware(

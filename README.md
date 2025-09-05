@@ -53,6 +53,6 @@ uv run fastapi dev main.py
 ```
 
 ## run prod server
-```
-ENV= production uv run fastapi run main.py
+```bash
+ENV = production uv run fastapi run main.py
 ```
